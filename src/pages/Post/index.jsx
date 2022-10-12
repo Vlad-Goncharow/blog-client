@@ -47,7 +47,7 @@ function Post() {
       <div className={s.wrapper}>
         <div className={s.top}>
           <div className={s.image}>
-            <img src={`http://localhost:4444${post.imageUrl}`} alt="" />
+            <img src={`${process.env.REACT_APP_API_URL}${post.imageUrl}`} alt="" />
           </div>
           <div className={s.user}>
             <div className={s.user__img}>

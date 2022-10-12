@@ -66,7 +66,7 @@ function PostItem({ el }) {
           </div>
         )}
         <div className={s.img}>
-          <img src={`http://localhost:4444${el.imageUrl}`} alt="" />
+          <img src={`${process.env.REACT_APP_API_URL}${el.imageUrl}`} alt="" />
         </div>
         <div className={s.author}>
           {el.user?.avatarUrl ? (
