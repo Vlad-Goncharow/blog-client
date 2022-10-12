@@ -1,0 +1,157 @@
+.comments {
+  padding: 25px;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+
+  &__row {
+    margin-bottom: 15px;
+  }
+
+  &__form {
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 15px 25px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: #F0F0F0;
+      cursor: pointer;
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  &__more {
+    padding: 5px 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  &_light {
+    background: #000;
+
+    .owner__btn_edit {
+      background: #fff;
+    }
+
+    .owner__btn_delete {
+      background: rgb(255 18 0);
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  @media(max-width:1200px) {
+    padding: 15px;
+  }
+}
+
+.comment {
+  margin-bottom: 20px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    background: #000;
+    margin-right: 15px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media(max-width:780px) {
+      width: 30px;
+      height: 30px;
+      margin-right: 12px;
+    }
+  }
+
+  &__email {
+    font-size: 16px;
+    color: #515151;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  &__text {
+    color: #BABABA;
+    font-size: 15px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__owner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+  }
+}
+
+.owner {
+  &__btn {
+    padding: 7px;
+    cursor: pointer;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      fill: #313131;
+    }
+
+    &_edit {
+      background: rgb(149 238 254);
+    }
+
+    &_delete {
+      background: rgb(232 57 44 / 57%);
+    }
+
+    &:hover {
+      svg {
+        transform: scale(1.1);
+        transition: all 0.3s;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.page{
+  
+}
+
+
+.light {
+  background: #fff;
+}
+
+.postsPage {
+  display: flex;
+  justify-content: space-between;  
+  align-items:flex-start;
+  padding-top: 140px;
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+.wrapper {
+  width: 870px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
