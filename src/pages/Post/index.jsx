@@ -10,7 +10,7 @@ import s from './Post.module.scss';
 
 function Post() {
   // ======== current theme
-  const { theme,isSidebar } = React.useContext(Context);
+  const { theme, isSidebar } = React.useContext(Context);
   // ======== current theme
 
   // ======== loading post
@@ -43,7 +43,7 @@ function Post() {
   }
 
   return (
-    <div className={"container" + ' ' + s.container}>
+    <div className={'container' + ' ' + s.container}>
       <div className={s.wrapper}>
         <div className={s.top}>
           <div className={s.image}>
@@ -93,10 +93,7 @@ function Post() {
         </div>
         <PostComments post={post} />
       </div>
-      {
-        isSidebar &&
-        <Sidebar />
-      }
+      {isSidebar && <Sidebar />}
     </div>
   );
 }

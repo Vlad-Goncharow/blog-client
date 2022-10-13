@@ -2,8 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-
-
 import { Context } from '../../App';
 import DarkTheme from '../../assets/img/darkMoon.png';
 import LightTheme from '../../assets/img/lightMoon.png';
@@ -11,39 +9,34 @@ import UseClickOutside from '../../hooks/UseClickOutside';
 import { fetchLogout, selectIsAuth } from '../../redux/slices/auth';
 import s from './Header.module.scss';
 
-
 function Header({ setItems }) {
-  const [burger,setBurger] = React.useState(true)
-  const {pathname} = useLocation()
+  const [burger, setBurger] = React.useState(true);
+  const { pathname } = useLocation();
 
   React.useEffect(() => {
-    if(pathname === '/login') {
-      return setBurger(false)
+    if (pathname === '/login') {
+      return setBurger(false);
     }
 
-    if(pathname === '/register'){
-      return setBurger(false)
+    if (pathname === '/register') {
+      return setBurger(false);
     }
 
-    setBurger(true)
+    setBurger(true);
   }, [pathname]);
 
   const toggleSidebar = () => {
-    setBurger(prev => !prev)
+    setBurger((prev) => !prev);
     setIsSidebar((prev) => !prev);
-  }
-
-
-
-
-
+  };
 
   // ======== navigate
   const navigate = useNavigate();
   // ======== navigate
 
   // ======== current theme
-  const { theme, setTheme, isSidebar, setIsSidebar } = React.useContext(Context);
+  const { theme, setTheme, isSidebar, setIsSidebar } =
+    React.useContext(Context);
   // ======== current theme
 
   // ======== all posts
@@ -73,7 +66,6 @@ function Header({ setItems }) {
   // ======== menu state is active
   const [meniIsOpen, setMenuIsOpen] = React.useState(false);
   // ======== menu state is active
-
 
   // ======== input value
   const [value, setValue] = React.useState('');
@@ -138,18 +130,20 @@ function Header({ setItems }) {
   };
   // ======== logout
 
-
-
   return (
     <header className={theme ? s.header : s.header + ' ' + s.header_light}>
       <div className={'container'}>
         <div className={s.top}>
-          {
-            burger &&
-            <div className={!isSidebar ? s.burger : s.burger + ' ' + s.burger__open} onClick={() => setIsSidebar(prev => !prev)}>
+          {burger && (
+            <div
+              className={
+                !isSidebar ? s.burger : s.burger + ' ' + s.burger__open
+              }
+              onClick={() => setIsSidebar((prev) => !prev)}
+            >
               <span></span>
             </div>
-          }
+          )}
           <Link to="/posts/all" className={s.logo}>
             WhatBlog
           </Link>

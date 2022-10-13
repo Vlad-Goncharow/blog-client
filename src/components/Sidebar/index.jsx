@@ -3,8 +3,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-
-
 import { Context } from '../../App';
 import DarkTheme from '../../assets/img/darkMoon.png';
 import LightTheme from '../../assets/img/lightMoon.png';
@@ -12,9 +10,7 @@ import { fetchLogout } from '../../redux/slices/auth';
 import { fetchTags } from '../../redux/slices/posts';
 import s from './Sidebar.module.scss';
 
-
 function Sidebar() {
-  
   // ======== current theme
   const { theme, isSidebar, setTheme } = React.useContext(Context);
   // ======== current theme
@@ -83,8 +79,8 @@ function Sidebar() {
             ))}
         </>
       </ul>
-      { isSidebar ?
-        (user ? 
+      {isSidebar ? (
+        user ? (
           <div className={s.wrapper}>
             <div className={s.wrapper__name}>
               <span>{user.fullName}</span>
@@ -100,24 +96,33 @@ function Sidebar() {
               <button className={s.wrapper__btn + ' ' + s.wrapper__btn_logout}>
                 Выйти
               </button>
-              <Link to={'/create'} className={s.wrapper__btn + ' ' + s.wrapper__btn_create}>
+              <Link
+                to={'/create'}
+                className={s.wrapper__btn + ' ' + s.wrapper__btn_create}
+              >
                 Создать запись
               </Link>
             </div>
           </div>
-         : 
+        ) : (
           <div className={s.wrapper}>
             <div className={s.wrapper__auth}>
-              <Link to={`/login`} className={s.wrapper__btn + ' ' + s.wrapper__btn_login}>
+              <Link
+                to={`/login`}
+                className={s.wrapper__btn + ' ' + s.wrapper__btn_login}
+              >
                 Войти
               </Link>
-              <Link to={`/register`} className={s.wrapper__btn + ' ' + s.wrapper__btn_register}>
+              <Link
+                to={`/register`}
+                className={s.wrapper__btn + ' ' + s.wrapper__btn_register}
+              >
                 Регистрация
               </Link>
             </div>
           </div>
-          ) : null
-      }
+        )
+      ) : null}
     </div>
   );
 }
