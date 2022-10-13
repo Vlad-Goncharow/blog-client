@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const instance = axios.create({
   withCredentials: true,
-  baseURL: process.env.API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 instance.interceptors.request.use((config) => {
@@ -25,7 +25,7 @@ instance.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
-        const response = await axios.get(`${process.env.API_URL}/auth/refresh`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/refresh`, {
           withCredentials: true,
         });
         localStorage.setItem('token', response.data.accessToken);
